@@ -8,84 +8,86 @@ while contador <= 5:
 
 
 """ Ejercicio 1. Colas """
-cola = []
-repetir = "S"
+from collections import deque
 
-while repetir.lower() == "s":
-    while True: 
-        print("Menu - Colas")
-        print("1. Insertar cola")
+cola = deque()
+respuesta = "s"
+
+while respuesta.lower() == "s":
+    opcion = 0
+
+    while opcion != 4:
+        print("1. Insertar en cola")
         print("2. Borrar en cola")
         print("3. Listar cola")
         print("4. Salir")
 
-        opcion = input("Ingrese una opción: ")
+        opcion = int(input("Selecciona una opcion: "))
 
-        if opcion == "1":
-            numero = input("Ingresa un numero: ")
+        if opcion == 1:
+            numero = int(input("Ingresa un numero: "))
             cola.append(numero)
-            print("Numero agregado.")
-
-        elif opcion == "2":
+            print("Numero agregado")
+        elif opcion == 2:
             if len(cola) > 0:
-                print("Se elimino:", cola.pop(0))
-            else: 
-                print("La cola está vacía.")
+                numero = cola.popleft()
+                print("Numero eliminado:", numero)
+            else:
+                print("La cola esta vacia")
 
-        elif opcion == "3":
-            print("Elementos de la cola: ", cola)
+        elif opcion == 3:
+            print("Contenido de la cola:", list(cola))
 
-        elif opcion == "4":
-            print("Saliendo del programa.")
-            break
+        elif opcion == 4:
+            print("Fin del menu")
 
-        respuesta = input("¿Quieres ejecutar otra vez? (s/n): ")
+        else:
+            print("Opcion incorrecta")
 
-        print ("Fin del programa.")
+    respuesta = input("Deseas ejecutar nuevamente? (s/n): ")
+
+print("Programa terminado")
+            
 
 
 """ Ejercicio 2. Pilas """
 pila = []
 seguir = "s"
+
 while seguir.lower() == "s":
-    print("\nPROGRAMA DE PILAS")
+    print("1. Apilar numero")
+    print("2. Desapilar numero")
+    print("3. Mostrar pila")
+    print("4. Salir")
 
     opcion = 0
 
     while opcion != 4:
-        print("\n1. Agregar numero")
-        print("2. Quitar numero")
-        print("3. Mostrar pila")
-        print("4. Terminar")
-
-        opcion = int(input("Selecciona una opcion: "))
+        opcion = int(input("Elige una opcion: "))
 
         if opcion == 1:
-            dato = int(input("Escribe el numero que deseas agregar: "))
-            pila.append(dato)
-            print("Numero guardado en la pila")
+            valor = int(input("Ingresa un numero: "))
+            pila.append(valor)
+            print("Numero agregado a la pila")
 
         elif opcion == 2:
             if pila:
-                dato = pila.pop()
-                print("Numero eliminado:", dato)
-            else:
-                print("No hay numeros en la pila")
-
-        elif opcion == 3:
-            if pila:
-                print("Contenido de la pila:")
-                for dato in reversed(pila):
-                    print(dato)
+                valor = pila.pop()
+                print("Numero retirado:", valor)
             else:
                 print("La pila esta vacia")
 
+        elif opcion == 3:
+            print("Pila de arriba hacia abajo:")
+            for valor in reversed(pila):
+                print(valor)
+
         elif opcion == 4:
-            print("Has terminado de usar la pila")
+            print("Saliendo de la pila")
 
         else:
-            print("Selecciona una opcion valida")
+            print("Opcion incorrecta")
 
-    seguir = input("Deseas iniciar nuevamente? (s/n): ")
+    seguir = input("Quieres volver a ejecutar? (s/n): ")
 
-print("Programa cerrado")
+print("Programa terminado")
