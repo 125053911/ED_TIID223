@@ -10,6 +10,7 @@ while contador <= 5:
 """ Ejercicio 1. Colas """
 from collections import deque
 
+print("COLAS")
 cola = deque()
 respuesta = "s"
 
@@ -51,6 +52,7 @@ print("Programa terminado")
 
 
 """ Ejercicio 2. Pilas """
+print("PILAS")
 pila = []
 seguir = "s"
 
